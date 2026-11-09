@@ -1,0 +1,25 @@
+[package]
+name = "nautilus-bench"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "NautilusTrader's Binance adapter against the exchange stub."
+
+# Own workspace root: features of shared dependencies are not unified with the other competitors.
+[workspace]
+
+[dependencies]
+axitor-bench-common = { path = "../common" }
+anyhow = "1"
+futures-util = "0.3"
+tokio = { version = "1", features = ["rt-multi-thread", "time"] }
+
+# Default features, as Nautilus ships them: 128-bit value types and the sockudo WebSocket transport.
+nautilus-binance = "=0.66.0"
+nautilus-common = { version = "=0.66.0", features = ["live"] }
+nautilus-network = "=0.66.0"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+debug = "limited"

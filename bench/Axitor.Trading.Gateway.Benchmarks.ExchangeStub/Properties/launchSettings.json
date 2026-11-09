@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Axitor.Trading.Gateway.Benchmarks.ExchangeStub": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:59074;http://localhost:59075"
+    }
+  }
+}

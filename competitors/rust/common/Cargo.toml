@@ -1,0 +1,11 @@
+[package]
+name = "axitor-bench-common"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Clock, allocation counter and stream harness shared by the Rust competitor benchmarks."
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]

@@ -1,0 +1,57 @@
+# Top-most EditorConfig file
+root = true
+
+# Don't use tabs for indentation.
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{cs,vb}]
+# Organize usings
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+
+# C# Coding Conventions for .NET 10+
+[*.cs]
+# Use file-scoped namespaces instead of block
+csharp_style_namespace_declarations = file_scoped:warning
+
+# Use var when type is apparent
+csharp_style_var_when_type_is_apparent = true:suggestion
+
+# Naming conventions
+dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
+dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
+dotnet_naming_rule.interface_should_be_begins_with_i.style = begins_with_i
+
+dotnet_naming_symbols.interface.applicable_kinds = interface
+dotnet_naming_style.begins_with_i.required_prefix = I
+dotnet_naming_style.begins_with_i.capitalization = pascal_case
+
+# Async methods should have "Async" suffix
+dotnet_naming_rule.async_methods_end_in_async.symbols = any_async_methods
+dotnet_naming_rule.async_methods_end_in_async.style = end_in_async
+dotnet_naming_rule.async_methods_end_in_async.severity = suggestion
+
+dotnet_naming_symbols.any_async_methods.applicable_kinds = method
+dotnet_naming_symbols.any_async_methods.applicable_accessibilities = *
+dotnet_naming_style.end_in_async.required_suffix = Async
+dotnet_naming_style.end_in_async.capitalization = pascal_case
+
+# CA1051: flat DTO structs with public fields are a deliberate design rule in this repository.
+# Properties on hot-path message structs introduce defensive copies and defeat inlining.
+dotnet_diagnostic.CA1051.severity = none
+
+[bench/**/*.cs]
+
+# CA1822: BenchmarkDotNet invokes benchmark, setup and cleanup methods on an instance, so they cannot be static. 
+dotnet_diagnostic.CA1822.severity = none
+
+[tests/**/*.cs]
+
+# CA1062: xunit calls test methods with the data it was given; null checks there would only add noise.
+dotnet_diagnostic.CA1062.severity = none

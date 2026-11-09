@@ -1,0 +1,61 @@
+name: ci
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+# A newer push to the same branch or PR cancels the run it makes stale.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      # Axitor.Trading.Gateway.Tests only. Axitor.Trading.Gateway.Tests.Live talks to the exchange and is
+      # deliberately absent from this list: no network, no credentials, no flake.
+      - name: Test
+        run: dotnet run --project tests/Axitor.Trading.Gateway.Tests --configuration Release --no-build
+
+  aot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      # IsAotCompatible only surfaces analyzer warnings. This proves the whole graph
+      # actually links under Native AOT, which is the claim the README makes.
+      - name: Publish AOT probe
+        run: dotnet publish samples/Axitor.Trading.Gateway.Samples --configuration Release --runtime linux-x64 -p:PublishAot=true -warnaserror

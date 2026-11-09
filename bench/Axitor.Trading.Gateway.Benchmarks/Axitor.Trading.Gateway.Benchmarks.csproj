@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Axitor.Trading.Gateway.Benchmarks</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" />
+    <PackageReference Include="Binance.Net" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Core/Axitor.Trading.Gateway.Core/Axitor.Trading.Gateway.Core.csproj" />
+    <ProjectReference Include="../../src/Connectors/Axitor.Trading.Gateway.Binance/Axitor.Trading.Gateway.Binance.csproj" />
+  </ItemGroup>
+
+</Project>

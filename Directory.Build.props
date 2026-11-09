@@ -1,0 +1,46 @@
+<Project>
+
+  <PropertyGroup>
+    <Product>Axitor.Trading.Gateway</Product>
+    <Authors>Daniel Lebedev</Authors>
+    <Company>Axitor</Company>
+    <Copyright>Copyright © 2026 Axitor.net</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Axitor/Trading.Gateway</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Axitor/Trading.Gateway</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <_ProjectPath>$(MSBuildProjectDirectory.Replace('\','/'))</_ProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(_ProjectPath.Contains('/src/'))">
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(_ProjectPath.Contains('/tests/')) Or $(_ProjectPath.Contains('/bench/')) Or $(_ProjectPath.Contains('/samples/'))">
+    <IsPackable>false</IsPackable>
+    <IsAotCompatible>false</IsAotCompatible>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+</Project>

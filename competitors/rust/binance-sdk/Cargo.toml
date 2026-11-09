@@ -1,0 +1,24 @@
+[package]
+name = "binance-sdk-bench"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "The official Binance Rust SDK against the exchange stub."
+
+# Own workspace root: features of shared dependencies are not unified with the other competitors.
+[workspace]
+
+[dependencies]
+axitor-bench-common = { path = "../common" }
+anyhow = "1"
+futures-util = "0.3"
+rust_decimal = "1.37"
+tokio = { version = "1", features = ["rt-multi-thread"] }
+
+# The default openssl-tls needs OpenSSL libraries on Windows; the stub is plain ws and http, so TLS is not on the measured path.
+binance-sdk = { version = "=77.1.0", default-features = false, features = ["derivatives_trading_usds_futures", "rustls-tls"] }
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+debug = "limited"

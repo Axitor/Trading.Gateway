@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Core/Axitor.Trading.Gateway.Core/Axitor.Trading.Gateway.Core.csproj" />
+    <Project Path="src/Connectors/Axitor.Trading.Gateway.Binance/Axitor.Trading.Gateway.Binance.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Axitor.Trading.Gateway.Tests/Axitor.Trading.Gateway.Tests.csproj" />
+    <Project Path="tests/Axitor.Trading.Gateway.Tests.Live/Axitor.Trading.Gateway.Tests.Live.csproj" />
+  </Folder>
+  <Folder Name="/bench/">
+    <Project Path="bench/Axitor.Trading.Gateway.Benchmarks/Axitor.Trading.Gateway.Benchmarks.csproj" />
+    <Project Path="bench/Axitor.Trading.Gateway.Benchmarks.ExchangeStub/Axitor.Trading.Gateway.Benchmarks.ExchangeStub.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Axitor.Trading.Gateway.Samples/Axitor.Trading.Gateway.Samples.csproj" />
+  </Folder>
+</Solution>

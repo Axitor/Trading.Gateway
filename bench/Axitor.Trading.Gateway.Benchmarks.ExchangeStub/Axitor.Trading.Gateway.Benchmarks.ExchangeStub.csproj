@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <RootNamespace>Axitor.Trading.Gateway.Benchmarks.ExchangeStub</RootNamespace>
+  </PropertyGroup>
+
+</Project>

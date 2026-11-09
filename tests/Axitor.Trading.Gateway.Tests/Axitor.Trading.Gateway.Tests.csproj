@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Axitor.Trading.Gateway.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Core/Axitor.Trading.Gateway.Core/Axitor.Trading.Gateway.Core.csproj" />
+    <ProjectReference Include="../../src/Connectors/Axitor.Trading.Gateway.Binance/Axitor.Trading.Gateway.Binance.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+</Project>

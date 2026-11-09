@@ -1,0 +1,30 @@
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
+[Tt]est[Rr]esults/
+
+.vs/
+.idea/
+*.user
+*.suo
+*.sln.docstates
+
+BenchmarkDotNet.Artifacts/
+
+secrets.json
+.env
+*.pfx
+*.pem
+*.key
+
+.DS_Store
+Thumbs.db
+
+# Benchmark data: recorded locally with bench/tools/recorder.cs
+bench/Data/
+
+# Benchmark results, logs and BenchmarkDotNet artifacts
+bench/Results/
+
+# Rust build output
+competitors/rust/**/target/

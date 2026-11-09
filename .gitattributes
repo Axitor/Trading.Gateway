@@ -1,0 +1,14 @@
+# Force LF line endings for all text files (Docker friendly)
+* text=auto eol=lf
+
+# Explicitly declare text files
+*.cs text diff=csharp
+*.xml text
+*.json text
+*.md text
+
+# Binary files: no merge attempts, no line ending rewrites
+*.dll binary
+*.exe binary
+*.so binary
+*.pfx binary

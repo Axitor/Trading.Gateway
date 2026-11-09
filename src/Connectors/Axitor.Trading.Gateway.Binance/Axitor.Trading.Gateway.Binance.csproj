@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Axitor.Trading.Gateway.Binance</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../Core/Axitor.Trading.Gateway.Core/Axitor.Trading.Gateway.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Axitor.Trading.Gateway.Tests" />
+    <InternalsVisibleTo Include="Axitor.Trading.Gateway.Tests.Live" />
+    <InternalsVisibleTo Include="Axitor.Trading.Gateway.Benchmarks" />
+  </ItemGroup>
+
+</Project>
