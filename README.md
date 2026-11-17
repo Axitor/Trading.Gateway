@@ -268,3 +268,7 @@ Built by **Daniel Lebedev**: Principal .NET Architect with 25+ years of experien
 ## License
 
 MIT
+
+---
+
+⭐ **Like it? Give the repo a star in the top right** — it's the best way to support the project.
